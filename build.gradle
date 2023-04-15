@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.sonarqube' version '3.0'
 }
 
 group 'org.example'
@@ -12,8 +13,17 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.8.1'
 }
 
 test {
     useJUnitPlatform()
+}
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.login", "f3934ec6e33ac89f7fdbf1bf066797a76ae248b4"
+        property "sonar.projectKey", "atap-report-portal-sonar"
+    }
 }
