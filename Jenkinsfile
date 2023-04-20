@@ -21,7 +21,7 @@ pipeline {
         stage('Sonar') {
             steps {
                 echo 'Hello World'
-              sh './gradlew sonarqube'
+              sh "./gradlew sonarqube"
             }
         }
     }
