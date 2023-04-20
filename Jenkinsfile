@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo 'Hello World'
               sh "chmod +x gradlew"
-              sh "./gradlew sonarqube"
+              sh "./gradlew sonar"
             }
         }
     }
