@@ -21,6 +21,7 @@ pipeline {
         stage('Sonar') {
             steps {
                 echo 'Hello World'
+              sh "chmod +x gradlew"
               sh "./gradlew sonarqube"
             }
         }
