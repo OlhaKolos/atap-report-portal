@@ -20,9 +20,10 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                echo 'Hello World'
-              sh "chmod +x gradlew"
-              sh "./gradlew sonar"
+              withSonarQubeEnv('sonar') {
+                    sh "chmod +x gradlew && ./gradlew sonar"
+                  }
+                waitForQualityGate abortPipeline: true
             }
         }
     }
