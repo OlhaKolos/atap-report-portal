@@ -18,9 +18,10 @@ pipeline {
             }
           
         }
-        stage('Hello') {
+        stage('Sonar') {
             steps {
-                echo 'Hello World'    
+                echo 'Hello World'
+              sh './gradlew sonarqube'
             }
         }
     }
