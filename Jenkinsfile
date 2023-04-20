@@ -1,4 +1,4 @@
-void setBuildStatus(String message, String state) {
+void setCommitStatus(String message, String state) {
   step([
       $class: "GitHubCommitStatusSetter",
       reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/OlhaKolos/atap-report-portal"],
