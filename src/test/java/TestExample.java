@@ -2,7 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-@Test()
+@Test
 public class TestExample {
     @DataProvider
     public Object[][] data() {

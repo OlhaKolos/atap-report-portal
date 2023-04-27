@@ -1,4 +1,4 @@
 package pom.components;
 
-public class AbstractPage {
+public abstract class AbstractPage {
 }
