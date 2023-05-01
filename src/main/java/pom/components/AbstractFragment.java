@@ -1,4 +1,7 @@
 package pom.components;
 
-public abstract class AbstractFragment {
+import util.driver.WebDriverWaiter;
+
+public abstract class AbstractFragment extends WebDriverWaiter {
+
 }

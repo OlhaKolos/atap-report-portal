@@ -16,8 +16,7 @@ public class WebDriverFactory {
     private static WebDriver driverSelector() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--ignore-certificate-errors");
-        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--remote-allow-origins=*");
         return new ChromeDriver(chromeOptions);
     }
 
