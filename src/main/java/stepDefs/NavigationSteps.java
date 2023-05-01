@@ -6,7 +6,7 @@ public class NavigationSteps {
 
     private LoginPage loginPage = new LoginPage();
 
-    public void loginAsDemoUser() {
+    public void navigateToLoginPage() {
         loginPage.visitPage();
     }
 }
