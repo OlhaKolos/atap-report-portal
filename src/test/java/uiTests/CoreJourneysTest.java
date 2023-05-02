@@ -1,5 +1,6 @@
 package uiTests;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,5 +19,6 @@ public class CoreJourneysTest {
         navigationSteps.navigateToLoginPage();
         LoginSteps loginSteps = new LoginSteps();
         loginSteps.loginAsDemoUser();
+        Assertions.assertTrue(navigationSteps.isCurrentPageSettingPage());
     }
 }

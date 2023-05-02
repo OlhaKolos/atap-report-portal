@@ -1,7 +1,6 @@
 package pom.components;
 
 import util.driver.WebDriverFactory;
-import util.driver.WebDriverUtils;
 
 public abstract class AbstractPage {
 
@@ -11,11 +10,11 @@ public abstract class AbstractPage {
         this.pageUrl = pageUrl;
     }
 
-    public String currentPageUrl() {
-        return WebDriverUtils.currentPageUrl();
-    }
-
     public void visitPage() {
         WebDriverFactory.getDriver().get(pageUrl);
+    }
+
+    public boolean isCurrent(String pageUrl) {
+        return new PageChecker(this).isCurrentByUrl(pageUrl);
     }
 }

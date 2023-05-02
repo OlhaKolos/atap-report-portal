@@ -5,6 +5,10 @@ import org.openqa.selenium.WebElement;
 import util.driver.WebDriverFactory;
 import util.driver.WebDriverWaiter;
 
+import static util.constants.Constants.DEFAULT_POLLING_MILLS;
+import static util.constants.Constants.DEFAULT_WEBELEMENT_TIMEOUT;
+import static util.driver.WebDriverUtils.waitFor;
+
 public abstract class AbstractFragment extends WebDriverWaiter {
 
     private WebElement rootElement;
@@ -18,7 +22,10 @@ public abstract class AbstractFragment extends WebDriverWaiter {
     }
 
     public void setChildInputValue(By locator, String value) {
-        getChildElement(locator).sendKeys(value);
+        WebElement input = getChildElement(locator);
+        input.click();
+        input.clear();
+        input.sendKeys(value);
     }
 
     public void clickChildElement(By locator) {
@@ -26,7 +33,16 @@ public abstract class AbstractFragment extends WebDriverWaiter {
         getChildElement(locator).click();
     }
 
+    public void waitForChildHidden(By locator) {
+        waitFor(condition -> !getRootElement().findElement(
+                locator).isDisplayed(), DEFAULT_WEBELEMENT_TIMEOUT, DEFAULT_POLLING_MILLS);
+    }
+
     private WebElement getChildElement(By locator) {
         return getRootElement().findElement(locator);
+    }
+
+    protected WebElement root() {
+        return rootElement;
     }
 }
