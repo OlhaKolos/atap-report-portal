@@ -1,0 +1,13 @@
+# Gradle
+.gradle
+
+# File-based project format
+*.iws
+
+# Custom
+.idea/
+/target
+/build
+
+# Logs and databases #
+*.log
